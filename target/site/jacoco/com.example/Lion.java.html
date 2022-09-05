@@ -2,10 +2,10 @@
 
 import java.util.List;
 
-public class Lion extends Animal implements FelineInterface, Predator {
+public class Lion {
     boolean hasMane;
 
-<span class="fc" id="L8">    public Lion(String sex) throws Exception {</span>
+<span class="fc" id="L8">    public Lion(String sex, Feline feline) throws Exception {</span>
 <span class="fc bfc" id="L9" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
 <span class="fc" id="L10">            hasMane = true;</span>
 <span class="fc bfc" id="L11" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
@@ -15,23 +15,18 @@ public class Lion extends Animal implements FelineInterface, Predator {
         }
 <span class="fc" id="L16">    }</span>
 
-    @Override
+<span class="fc" id="L18">    Feline feline = new Feline();</span>
+
     public int getKittens() {
-<span class="nc" id="L20">        return getKittens(1);</span>
-    }
-
-    @Override
-    public int getKittens(int kittensCount) {
-<span class="nc" id="L25">        return kittensCount;</span>
-    }
-
-    @Override
-    public List&lt;String&gt; eatMeat() throws Exception {
-<span class="nc" id="L30">        return getFood(&quot;Хищник&quot;);</span>
+<span class="nc" id="L21">        return feline.getKittens();</span>
     }
 
     public boolean doesHaveMane() {
-<span class="fc" id="L34">        return hasMane;</span>
+<span class="fc" id="L25">        return hasMane;</span>
+    }
+
+    public List&lt;String&gt; getFood() throws Exception {
+<span class="nc" id="L29">        return feline.getFood(&quot;Хищник&quot;);</span>
     }
 
 }

@@ -2,10 +2,10 @@ package com.example;
 
 import java.util.List;
 
-public class Lion extends Animal implements FelineInterface, Predator {
+public class Lion {
     boolean hasMane;
 
-    public Lion(String sex) throws Exception {
+    public Lion(String sex, Feline feline) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -15,23 +15,18 @@ public class Lion extends Animal implements FelineInterface, Predator {
         }
     }
 
-    @Override
+    Feline feline = new Feline();
+
     public int getKittens() {
-        return getKittens(1);
-    }
-
-    @Override
-    public int getKittens(int kittensCount) {
-        return kittensCount;
-    }
-
-    @Override
-    public List<String> eatMeat() throws Exception {
-        return getFood("Хищник");
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {
         return hasMane;
+    }
+
+    public List<String> getFood() throws Exception {
+        return feline.getFood("Хищник");
     }
 
 }

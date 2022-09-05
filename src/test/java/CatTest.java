@@ -1,4 +1,3 @@
-import com.example.Animal;
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Test;
@@ -8,14 +7,12 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
     @Mock
     Feline feline;
-    Animal animal;
 
     @Test
     public void checkGetSound() {

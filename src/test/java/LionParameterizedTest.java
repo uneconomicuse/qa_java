@@ -1,17 +1,17 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 @RunWith(Parameterized.class)
-public class LionTest {
+public class LionParameterizedTest {
     private final String sex;
     private final boolean expected;
 
-    public LionTest(String sex, boolean expected) {
+    public LionParameterizedTest(String sex, boolean expected) {
         this.sex = sex;
         this.expected = expected;
     }
@@ -26,19 +26,9 @@ public class LionTest {
 
     @Test
     public void checkSexLion() throws Exception {
-        Lion lion = new Lion(sex);
+        Feline feline = new Feline();
+        Lion lion = new Lion(sex, feline);
         boolean actual = lion.doesHaveMane();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void checkInvalidSexLion() {
-        Exception e = assertThrows(
-                Exception.class, () -> {
-                    Lion lion = new Lion("Некроморф");
-                });
-        String expected = "Используйте допустимые значения пола животного - самец или самка";
-        String actual = e.getMessage();
         assertEquals(expected, actual);
     }
 
